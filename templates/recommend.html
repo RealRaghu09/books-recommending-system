@@ -86,11 +86,17 @@
             <form action="/recommend_books" method="post">
                 <div class="mb-3">
                     <input name="user_input" type="text" class="form-control form-control-lg" 
-                           placeholder="Enter a book you like...">
+                           placeholder="Enter a book you like..." value="{{ query or '' }}">
                 </div>
                 <button type="submit" class="btn btn-primary">Get Recommendations</button>
             </form>
         </div>
+
+        {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endif %}
 
         {% if data %}
         <div class="row g-4">
